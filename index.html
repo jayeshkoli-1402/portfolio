@@ -1810,8 +1810,8 @@
       window._heroStarted = true;
       startHeroAnimation();
     }
-    // Initialize scroll reveal animations now that the boot screen is gone
-    initScrollReveal();
+    // Initialize scroll reveal animations after the boot screen finishes fading out (matching the 0.8s CSS transition)
+    setTimeout(initScrollReveal, 800);
   }
 
   function addLine() {
@@ -1962,8 +1962,8 @@ function initScrollReveal() {
       }
     });
   }, {
-    threshold: 0.15,
-    rootMargin: '0px 0px -40px 0px'
+    threshold: 0.05,
+    rootMargin: '0px 0px -20px 0px'
   });
 
   revealElements.forEach(el => observer.observe(el));
