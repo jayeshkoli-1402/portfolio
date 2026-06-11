@@ -1804,13 +1804,20 @@
   const bootScreen = document.getElementById('boot-screen');
   let lineIndex = 0;
 
+  function dismissBootScreen() {
+    bootScreen.classList.add('done');
+    if (!window._heroStarted) {
+      window._heroStarted = true;
+      startHeroAnimation();
+    }
+    // Initialize scroll reveal animations now that the boot screen is gone
+    initScrollReveal();
+  }
+
   function addLine() {
     if (lineIndex >= bootLines.length) {
       progressBar.style.width = '100%';
-      setTimeout(() => {
-        bootScreen.classList.add('done');
-        if (!window._heroStarted) { window._heroStarted = true; startHeroAnimation(); }
-      }, 400);
+      setTimeout(dismissBootScreen, 400);
       return;
     }
 
@@ -1838,21 +1845,10 @@
   }
 
   // Click anywhere to skip boot
-  bootScreen.addEventListener('click', () => {
-    bootScreen.classList.add('done');
-    if (!window._heroStarted) { window._heroStarted = true; startHeroAnimation(); }
-  });
+  bootScreen.addEventListener('click', dismissBootScreen);
 
   setTimeout(addLine, 300);
 })();
-
-// ========================================================
-// INIT SCROLL REVEAL IMMEDIATELY (don't wait for boot)
-// ========================================================
-document.addEventListener('DOMContentLoaded', () => {
-  // Small delay to ensure CSS is applied
-  setTimeout(initScrollReveal, 100);
-});
 
 // ========================================================
 // 3. TYPING EFFECT FOR HERO
