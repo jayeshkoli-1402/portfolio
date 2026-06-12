@@ -1406,7 +1406,7 @@
 
     <div class="about-text">
       <p>
-        I'm a second-year Computer Science student at <strong class="highlight">SVKM's College of Engineering, Daivad</strong>,
+        I'm a second-year Computer Science student at <strong class="highlight">SVKM's College of Engineering, Dahivad (Shirpur)</strong>,
         passionate about building machine learning models and data-driven applications. I specialize in turning raw,
         messy datasets into clean, optimized pipelines that deliver real results.
       </p>
@@ -1540,7 +1540,7 @@
       <thead><tr><th>Metric</th><th>Detail</th></tr></thead>
       <tbody>
         <tr><td data-label="Metric">Algorithm</td><td data-label="Detail">K-Nearest Neighbors (KNN)</td></tr>
-        <tr><td data-label="Metric">Baseline Accuracy</td><td data-label="Detail"><span class="accent-red">25.00%</span></td></tr>
+        <tr><td data-label="Metric">Baseline Accuracy</td><td data-label="Detail"><span class="accent-red">65.10% (Majority Class)</span></td></tr>
         <tr><td data-label="Metric">Final Tuned Accuracy</td><td data-label="Detail"><span class="accent-green">70.78%</span></td></tr>
         <tr><td data-label="Metric">Preprocessing</td><td data-label="Detail">StandardScaler Normalization, Outlier Removal</td></tr>
         <tr><td data-label="Metric">Backend</td><td data-label="Detail">Flask Web App</td></tr>
@@ -1659,7 +1659,7 @@
         <tr>
           <td data-label="Award"><strong>Energy Swaraj Literacy Training</strong></td>
           <td data-label="Issuer">Energy Swaraj Foundation</td>
-          <td data-label="PDF"><span style="color: var(--text-muted);">Certificate Held</span></td>
+          <td data-label="PDF"><a href="assets/energy.jpeg" target="_blank">VIEW IMAGE ↗</a></td>
         </tr>
       </tbody>
     </table>
@@ -1683,18 +1683,18 @@
 
     <p style="margin-bottom: 18px; color: var(--text-muted); font-size: 13px;">Interested in collaborating or have an opportunity? Reach out directly:</p>
 
-    <form action="mailto:jayeshkoli1402@gmail.com" method="GET" enctype="text/plain" class="contact-form">
+    <form id="contact-form" class="contact-form">
       <div class="form-group">
         <label for="contact-name">Your Name</label>
-        <input type="text" id="contact-name" name="subject" placeholder="Enter your name or company">
+        <input type="text" id="contact-name" required placeholder="Enter your name or company">
       </div>
       <div class="form-group">
         <label for="contact-email">Your Email</label>
-        <input type="text" id="contact-email" name="email" placeholder="yourname@domain.com">
+        <input type="email" id="contact-email" required placeholder="yourname@domain.com">
       </div>
       <div class="form-group">
         <label for="contact-message">Message</label>
-        <textarea id="contact-message" name="body" placeholder="Describe your opportunity, project, or inquiry..."></textarea>
+        <textarea id="contact-message" required placeholder="Describe your opportunity, project, or inquiry..."></textarea>
       </div>
       <div class="form-group">
         <input type="submit" value="[ SEND MESSAGE ]">
@@ -2060,6 +2060,26 @@ document.querySelectorAll('.section').forEach(section => {
       }
     });
   });
+})();
+
+// ========================================================
+// 10. CONTACT FORM SUBMISSION HANDLER
+// ========================================================
+(function() {
+  const form = document.getElementById('contact-form');
+  if (form) {
+    form.addEventListener('submit', (e) => {
+      e.preventDefault();
+      const name = document.getElementById('contact-name').value.trim();
+      const email = document.getElementById('contact-email').value.trim();
+      const message = document.getElementById('contact-message').value.trim();
+
+      const subject = `Portfolio Inquiry from ${name}`;
+      const body = `Sender Name: ${name}\nSender Email: ${email}\n\nMessage:\n${message}`;
+
+      window.location.href = `mailto:jayeshkoli1402@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  }
 })();
 </script>
 
