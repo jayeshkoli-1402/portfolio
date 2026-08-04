@@ -1161,12 +1161,185 @@
       font-weight: 600;
     }
 
-    /* ===== CONTACT FORM ===== */
+    /* ===== CONNECT FLASH CARDS ===== */
+    .connect-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 16px;
+      margin-bottom: 28px;
+      perspective: 1000px;
+    }
+
+    .flash-card {
+      height: 180px;
+      cursor: pointer;
+      perspective: 1000px;
+    }
+
+    .flash-card-inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+      transform-style: preserve-3d;
+    }
+
+    .flash-card:hover .flash-card-inner {
+      transform: rotateY(180deg);
+    }
+
+    .flash-card-front,
+    .flash-card-back {
+      position: absolute;
+      inset: 0;
+      backface-visibility: hidden;
+      -webkit-backface-visibility: hidden;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 20px;
+      border: 1px solid rgba(255, 255, 255, 0.06);
+      overflow: hidden;
+    }
+
+    .flash-card-front {
+      background: var(--bg-card);
+    }
+
+    .flash-card-front::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      border-radius: 2px;
+    }
+
+    .flash-card-front .card-icon {
+      font-size: 36px;
+      margin-bottom: 14px;
+      display: block;
+      filter: drop-shadow(0 0 12px var(--card-accent));
+      transition: transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+    }
+
+    .flash-card:hover .card-icon {
+      transform: scale(1.15);
+    }
+
+    .flash-card-front .card-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--card-accent);
+    }
+
+    .flash-card-front .card-hint {
+      font-size: 9px;
+      color: var(--text-muted);
+      margin-top: 8px;
+      letter-spacing: 1px;
+      opacity: 0.6;
+    }
+
+    .flash-card-back {
+      background: var(--bg-panel);
+      transform: rotateY(180deg);
+      text-align: center;
+      gap: 10px;
+    }
+
+    .flash-card-back::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: radial-gradient(circle at center, var(--card-accent) 0%, transparent 70%);
+      opacity: 0.06;
+    }
+
+    .flash-card-back .card-value {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--card-accent);
+      word-break: break-all;
+      position: relative;
+      z-index: 1;
+    }
+
+    .flash-card-back .card-action {
+      display: inline-block;
+      padding: 8px 18px;
+      border: 1px solid var(--card-accent);
+      border-radius: var(--radius);
+      font-family: var(--font);
+      font-size: 10px;
+      font-weight: 700;
+      color: var(--card-accent);
+      text-decoration: none;
+      letter-spacing: 1.5px;
+      transition: all 0.3s;
+      position: relative;
+      z-index: 1;
+    }
+
+    .flash-card-back .card-action:hover {
+      background: var(--card-accent);
+      color: var(--bg-deep);
+      box-shadow: 0 0 20px var(--card-accent);
+      text-shadow: none;
+    }
+
+    .flash-card-back .card-action:visited {
+      color: var(--card-accent);
+    }
+
+    .flash-card-back .card-action:visited:hover {
+      color: var(--bg-deep);
+    }
+
+    /* Card color variants */
+    .flash-card--email { --card-accent: var(--red); }
+    .flash-card--email .flash-card-front::before {
+      background: var(--red); box-shadow: 0 0 20px var(--red);
+    }
+    .flash-card--linkedin { --card-accent: var(--cyan); }
+    .flash-card--linkedin .flash-card-front::before {
+      background: var(--cyan); box-shadow: 0 0 20px var(--cyan);
+    }
+    .flash-card--github { --card-accent: var(--purple); }
+    .flash-card--github .flash-card-front::before {
+      background: var(--purple); box-shadow: 0 0 20px var(--purple);
+    }
+    .flash-card--phone { --card-accent: var(--green); }
+    .flash-card--phone .flash-card-front::before {
+      background: var(--green); box-shadow: 0 0 20px var(--green);
+    }
+
+    /* ===== CONNECT FORM ===== */
+    .connect-form-wrap {
+      border-top: 1px solid rgba(255, 255, 255, 0.06);
+      padding-top: 24px;
+      margin-top: 8px;
+    }
+
+    .connect-form-wrap h3 {
+      font-size: 12px;
+      color: var(--red);
+      margin-bottom: 16px;
+      letter-spacing: 2px;
+      text-align: center;
+    }
+
     .contact-form {
       display: flex;
       flex-direction: column;
       gap: 16px;
-      margin-bottom: 24px;
+      max-width: 600px;
+      margin: 0 auto;
     }
 
     .form-group {
@@ -1219,6 +1392,7 @@
       max-width: 240px;
       position: relative;
       overflow: hidden;
+      align-self: center;
     }
 
     .form-group input[type="submit"]:hover {
@@ -1227,42 +1401,35 @@
       box-shadow: 0 0 30px rgba(0, 229, 255, 0.3);
     }
 
-    /* ===== CONTACT CHANNELS ===== */
-    .contact-channels {
-      border-top: 1px solid rgba(255, 68, 68, 0.12);
-      padding-top: 18px;
-    }
+    /* ===== RESPONSIVE: FLASH CARDS ===== */
+    @media (max-width: 480px) {
+      .connect-cards {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 10px;
+      }
 
-    .contact-channels h3 {
-      font-size: 12px;
-      color: var(--red);
-      margin-bottom: 12px;
-      letter-spacing: 2px;
-    }
+      .flash-card {
+        height: 150px;
+      }
 
-    .channels-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-      gap: 8px;
-    }
+      .flash-card-front .card-icon {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
 
-    .channel-item {
-      font-size: 12px;
-      padding: 10px 14px;
-      background: var(--bg-card);
-      border-radius: var(--radius);
-      border: 1px solid rgba(255, 255, 255, 0.03);
-      transition: all 0.3s;
-    }
+      .flash-card-front .card-label {
+        font-size: 9px;
+        letter-spacing: 2px;
+      }
 
-    .channel-item:hover {
-      border-color: rgba(255, 68, 68, 0.2);
-      background: rgba(255, 68, 68, 0.03);
-    }
+      .flash-card-back .card-value {
+        font-size: 11px;
+      }
 
-    .channel-item strong {
-      color: var(--text-muted);
-      margin-right: 6px;
+      .flash-card-back .card-action {
+        font-size: 9px;
+        padding: 6px 12px;
+      }
     }
 
     /* ===== FOOTER ===== */
@@ -1595,7 +1762,7 @@
       <a href="#skills">SKILLS</a>
       <a href="#projects">PROJECTS</a>
       <a href="#certifications">CERTS</a>
-      <a href="#contact">CONTACT</a>
+      <a href="#connect">CONNECT</a>
       <a href="assets/resume.pdf" target="_blank">RESUME</a>
     </nav>
 
@@ -1692,7 +1859,7 @@
           <li><a href="#skills">SKILLS & TECHNOLOGIES</a></li>
           <li><a href="#projects">PROJECTS & EXPERIENCE</a></li>
           <li><a href="#certifications">CERTIFICATIONS & ACHIEVEMENTS</a></li>
-          <li><a href="#contact">CONTACT & REACH OUT</a></li>
+          <li><a href="#connect">CONNECT & REACH OUT</a></li>
         </ul>
       </div>
     </section>
@@ -2099,64 +2266,108 @@
       <div class="quick-nav">
         <h3>NAVIGATION:</h3>
         <ul>
-          <li><a href="#contact">NEXT: CONTACT ME</a></li>
+          <li><a href="#connect">NEXT: CONNECT WITH ME</a></li>
           <li><a href="#projects">BACK: RETURN TO PROJECTS</a></li>
           <li><a href="#about">TOP: RETURN TO ABOUT</a></li>
         </ul>
       </div>
     </section>
 
-    <!-- ==================== CONTACT ==================== -->
-    <section class="section section--red reveal-scale" id="contact">
+    <!-- ==================== CONNECT ==================== -->
+    <section class="section section--red reveal-scale" id="connect">
       <div class="terminal-prompt">
-        <span class="user">jayesh@portfolio</span>:<span class="path">~/contact</span><span class="dollar">$</span>
-        sendmail --compose
+        <span class="user">jayesh@portfolio</span>:<span class="path">~/connect</span><span class="dollar">$</span>
+        ssh --channels --list
       </div>
-      <h2 class="section-title">CONTACT ME</h2>
+      <h2 class="section-title">LET'S CONNECT</h2>
 
-      <p style="margin-bottom: 18px; color: var(--text-muted); font-size: 13px;">Interested in collaborating or have an
-        opportunity? Reach out directly:</p>
+      <p style="margin-bottom: 24px; color: var(--text-muted); font-size: 13px; text-align: center;">Hover a card to reveal — click to connect:</p>
 
-      <form id="contact-form" class="contact-form">
-        <div class="form-group">
-          <label for="contact-name">Your Name</label>
-          <input type="text" id="contact-name" required placeholder="Enter your name or company">
+      <div class="connect-cards stagger-children">
+        <!-- EMAIL -->
+        <div class="flash-card flash-card--email reveal" style="--i:0">
+          <div class="flash-card-inner">
+            <div class="flash-card-front">
+              <span class="card-icon">✉️</span>
+              <span class="card-label">EMAIL</span>
+              <span class="card-hint">[ hover to reveal ]</span>
+            </div>
+            <div class="flash-card-back">
+              <span class="card-value">jayeshkoli1402@gmail.com</span>
+              <a href="mailto:jayeshkoli1402@gmail.com" class="card-action">SEND EMAIL ↗</a>
+            </div>
+          </div>
         </div>
-        <div class="form-group">
-          <label for="contact-email">Your Email</label>
-          <input type="email" id="contact-email" required placeholder="yourname@domain.com">
-        </div>
-        <div class="form-group">
-          <label for="contact-message">Message</label>
-          <textarea id="contact-message" required
-            placeholder="Describe your opportunity, project, or inquiry..."></textarea>
-        </div>
-        <div class="form-group">
-          <input type="submit" value="[ SEND MESSAGE ]">
-        </div>
-      </form>
 
-      <div class="contact-channels">
-        <h3>DIRECT CONTACT CHANNELS:</h3>
-        <div class="channels-grid">
-          <div class="channel-item">
-            <strong>Email:</strong> <a href="mailto:jayeshkoli1402@gmail.com">jayeshkoli1402@gmail.com</a>
+        <!-- LINKEDIN -->
+        <div class="flash-card flash-card--linkedin reveal" style="--i:1">
+          <div class="flash-card-inner">
+            <div class="flash-card-front">
+              <span class="card-icon">🔗</span>
+              <span class="card-label">LINKEDIN</span>
+              <span class="card-hint">[ hover to reveal ]</span>
+            </div>
+            <div class="flash-card-back">
+              <span class="card-value">jayesh-koli</span>
+              <a href="https://www.linkedin.com/in/jayesh-koli-6b9853336" target="_blank" rel="noopener" class="card-action">VIEW PROFILE ↗</a>
+            </div>
           </div>
-          <div class="channel-item">
-            <strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/jayesh-koli-6b9853336" target="_blank"
-              rel="noopener">jayesh-koli</a>
+        </div>
+
+        <!-- GITHUB -->
+        <div class="flash-card flash-card--github reveal" style="--i:2">
+          <div class="flash-card-inner">
+            <div class="flash-card-front">
+              <span class="card-icon">🐱</span>
+              <span class="card-label">GITHUB</span>
+              <span class="card-hint">[ hover to reveal ]</span>
+            </div>
+            <div class="flash-card-back">
+              <span class="card-value">jayeshkoli-1402</span>
+              <a href="https://github.com/jayeshkoli-1402" target="_blank" rel="noopener" class="card-action">VIEW REPOS ↗</a>
+            </div>
           </div>
-          <div class="channel-item">
-            <strong>GitHub:</strong> <a href="https://github.com/jayeshkoli-1402" target="_blank"
-              rel="noopener">jayeshkoli-1402</a>
-          </div>
-          <div class="channel-item">
-            <strong>Phone:</strong> <a href="tel:+918530379044">+91 8530379044</a>
+        </div>
+
+        <!-- PHONE -->
+        <div class="flash-card flash-card--phone reveal" style="--i:3">
+          <div class="flash-card-inner">
+            <div class="flash-card-front">
+              <span class="card-icon">📱</span>
+              <span class="card-label">PHONE</span>
+              <span class="card-hint">[ hover to reveal ]</span>
+            </div>
+            <div class="flash-card-back">
+              <span class="card-value">+91 8530379044</span>
+              <a href="tel:+918530379044" class="card-action">CALL NOW ↗</a>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="back-top">
+      <div class="connect-form-wrap">
+        <h3>OR DROP A MESSAGE:</h3>
+        <form id="contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="contact-name">Your Name</label>
+            <input type="text" id="contact-name" required placeholder="Enter your name or company">
+          </div>
+          <div class="form-group">
+            <label for="contact-email">Your Email</label>
+            <input type="email" id="contact-email" required placeholder="yourname@domain.com">
+          </div>
+          <div class="form-group">
+            <label for="contact-message">Message</label>
+            <textarea id="contact-message" required
+              placeholder="Describe your opportunity, project, or inquiry..."></textarea>
+          </div>
+          <div class="form-group">
+            <input type="submit" value="[ SEND MESSAGE ]">
+          </div>
+        </form>
+      </div>
+
+      <div class="back-top" style="margin-top: 24px;">
         <a href="#about" class="btn btn--ghost">BACK TO TOP ↑</a>
       </div>
     </section>
