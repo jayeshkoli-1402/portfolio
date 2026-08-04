@@ -1671,9 +1671,10 @@
         </p>
         <p><strong>Core Focus Areas:</strong></p>
         <ul>
-          <li>Machine Learning & Predictive Modeling (KNN, Random Forest, Linear Regression)</li>
+          <li>Machine Learning & Predictive Modeling (SVM, KNN, Random Forest, Linear Regression)</li>
+          <li>API Engineering & Microservices (FastAPI, Pydantic, Docker)</li>
           <li>Data Engineering & Pipeline Optimization (Pandas, NumPy, StandardScaler)</li>
-          <li>Backend Development with Flask</li>
+          <li>Backend Development with FastAPI & Flask</li>
           <li>Data Visualization & Analytics</li>
         </ul>
         <p>
@@ -1714,30 +1715,36 @@
           </div>
         </div>
         <div class="skill-row reveal-left" style="--i:1">
+          <span class="skill-name">FastAPI & REST API Development</span>
+          <div class="skill-bar-track">
+            <div class="skill-bar-fill green" data-width="82"></div>
+          </div>
+        </div>
+        <div class="skill-row reveal-left" style="--i:2">
           <span class="skill-name">Scikit-learn / NumPy / Pandas</span>
           <div class="skill-bar-track">
             <div class="skill-bar-fill green" data-width="80"></div>
           </div>
         </div>
-        <div class="skill-row reveal-left" style="--i:2">
+        <div class="skill-row reveal-left" style="--i:3">
           <span class="skill-name">Data Visualization & Analytics</span>
           <div class="skill-bar-track">
             <div class="skill-bar-fill green" data-width="75"></div>
           </div>
         </div>
-        <div class="skill-row reveal-left" style="--i:3">
+        <div class="skill-row reveal-left" style="--i:4">
           <span class="skill-name">Flask Web Development</span>
           <div class="skill-bar-track">
             <div class="skill-bar-fill yellow" data-width="70"></div>
           </div>
         </div>
-        <div class="skill-row reveal-left" style="--i:4">
+        <div class="skill-row reveal-left" style="--i:5">
           <span class="skill-name">C / C++</span>
           <div class="skill-bar-track">
             <div class="skill-bar-fill yellow" data-width="65"></div>
           </div>
         </div>
-        <div class="skill-row reveal-left" style="--i:5">
+        <div class="skill-row reveal-left" style="--i:6">
           <span class="skill-name">JavaScript / HTML / CSS</span>
           <div class="skill-bar-track">
             <div class="skill-bar-fill yellow" data-width="60"></div>
@@ -1768,32 +1775,38 @@
       <div class="stagger-children">
         <div class="project-summary reveal" style="--i:0">
           <div class="proj-label">PROJECT 1</div>
+          <div class="proj-name"><a href="#proj-har">HUMAN ACTIVITY RECOGNITION API</a></div>
+          <div class="proj-desc">SVM classifier (99.02% accuracy) with containerized FastAPI microservice & Pydantic validation live on Render.</div>
+        </div>
+
+        <div class="project-summary reveal" style="--i:1">
+          <div class="proj-label">PROJECT 2</div>
           <div class="proj-name"><a href="#proj-diabetes">DIABETES PREDICTION WEB APP</a></div>
           <div class="proj-desc">KNN-based classifier tuned to 70.78% accuracy with StandardScaler preprocessing and
             Flask deployment.</div>
         </div>
 
-        <div class="project-summary reveal" style="--i:1">
-          <div class="proj-label">PROJECT 2</div>
+        <div class="project-summary reveal" style="--i:2">
+          <div class="proj-label">PROJECT 3</div>
           <div class="proj-name"><a href="#proj-fraud">CREDIT CARD FRAUD DETECTION</a></div>
           <div class="proj-desc">Random Forest ensemble model handling severely imbalanced transaction data.</div>
         </div>
 
-        <div class="project-summary reveal" style="--i:2">
-          <div class="proj-label">PROJECT 3</div>
+        <div class="project-summary reveal" style="--i:3">
+          <div class="proj-label">PROJECT 4</div>
           <div class="proj-name"><a href="#proj-stocker">STOCKER — STOCK ANALYTICS DASHBOARD</a></div>
           <div class="proj-desc">Flask-based dashboard fetching and visualizing top Indian stock market data.</div>
         </div>
 
-        <div class="project-summary reveal" style="--i:3">
-          <div class="proj-label">PROJECT 4</div>
+        <div class="project-summary reveal" style="--i:4">
+          <div class="proj-label">PROJECT 5</div>
           <div class="proj-name"><a href="#proj-movieverse">MOVIEVERSE RECOMMENDATION SYSTEM</a></div>
           <div class="proj-desc">Content-based recommender using cosine similarity and MultiLabelBinarizer feature
             encoding.</div>
         </div>
 
-        <div class="project-summary reveal" style="--i:4">
-          <div class="proj-label">PROJECT 5</div>
+        <div class="project-summary reveal" style="--i:5">
+          <div class="proj-label">PROJECT 6</div>
           <div class="proj-name"><a href="#proj-housing">HOUSING PRICE PREDICTION & DATA CLEANING</a></div>
           <div class="proj-desc">Linear regression model with robust Pandas-based data wrangling pipeline.</div>
         </div>
@@ -1811,8 +1824,56 @@
 
     <!-- ==================== PROJECT DETAILS ==================== -->
 
+    <div class="project-detail reveal" id="proj-har">
+      <h3>PROJECT 1: HUMAN ACTIVITY RECOGNITION API</h3>
+      <p>Trained and compared SVM classifiers (Linear vs RBF kernel) to classify human activity from smartphone sensor data (561 features, 6 classes), achieving 99.02% accuracy. Built a FastAPI service with Pydantic validation, containerized with Docker, and deployed live on Render.</p>
+      <table class="metrics-table">
+        <thead>
+          <tr>
+            <th>Metric</th>
+            <th>Detail</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td data-label="Metric">Algorithm / Model</td>
+            <td data-label="Detail">SVM Classifier (Linear vs RBF Kernel)</td>
+          </tr>
+          <tr>
+            <td data-label="Metric">Accuracy</td>
+            <td data-label="Detail"><span class="accent-green">99.02%</span></td>
+          </tr>
+          <tr>
+            <td data-label="Metric">Dataset &amp; Features</td>
+            <td data-label="Detail">Smartphone Sensor Data (561 Features, 6 Classes)</td>
+          </tr>
+          <tr>
+            <td data-label="Metric">API Backend &amp; Validation</td>
+            <td data-label="Detail">FastAPI Service with Pydantic Schema Validation</td>
+          </tr>
+          <tr>
+            <td data-label="Metric">Containerization &amp; Hosting</td>
+            <td data-label="Detail">Docker Containerized, Deployed Live on Render</td>
+          </tr>
+          <tr>
+            <td data-label="Metric">Technologies</td>
+            <td data-label="Detail">Python, Scikit-learn, FastAPI, Pydantic, Docker, Pandas</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="detail-actions">
+        <a href="https://har-fastapi.onrender.com/docs" target="_blank" rel="noopener"
+          class="btn">LIVE API DOCS ↗</a>
+        <a href="https://github.com/jayeshkoli-1402" target="_blank" rel="noopener"
+          class="btn btn--ghost">GITHUB: MODEL TRAINING ↗</a>
+        <a href="https://github.com/jayeshkoli-1402" target="_blank" rel="noopener"
+          class="btn btn--ghost">GITHUB: API DEPLOYMENT ↗</a>
+        <a href="#projects" class="btn btn--ghost">BACK TO PROJECTS</a>
+      </div>
+    </div>
+
     <div class="project-detail reveal" id="proj-diabetes">
-      <h3>PROJECT 1: DIABETES PREDICTION WEB APP</h3>
+      <h3>PROJECT 2: DIABETES PREDICTION WEB APP</h3>
       <p>A web-based clinical risk assessment tool that predicts diabetes likelihood from patient diagnostic metrics
         using optimized KNN classification.</p>
       <table class="metrics-table">
@@ -1853,7 +1914,7 @@
     </div>
 
     <div class="project-detail reveal" id="proj-fraud">
-      <h3>PROJECT 2: CREDIT CARD FRAUD DETECTION</h3>
+      <h3>PROJECT 3: CREDIT CARD FRAUD DETECTION</h3>
       <p>An ML model trained on highly imbalanced credit card transaction data to detect fraudulent activity while
         minimizing false positives.</p>
       <table class="metrics-table">
@@ -1886,7 +1947,7 @@
     </div>
 
     <div class="project-detail reveal" id="proj-stocker">
-      <h3>PROJECT 3: STOCKER — STOCK ANALYTICS DASHBOARD</h3>
+      <h3>PROJECT 4: STOCKER — STOCK ANALYTICS DASHBOARD</h3>
       <p>A Flask-based web dashboard that fetches and displays real-time data for top Indian stocks, with moving
         averages and performance visualizations.</p>
       <table class="metrics-table">
@@ -1919,7 +1980,7 @@
     </div>
 
     <div class="project-detail reveal" id="proj-movieverse">
-      <h3>PROJECT 4: MOVIEVERSE RECOMMENDATION SYSTEM</h3>
+      <h3>PROJECT 5: MOVIEVERSE RECOMMENDATION SYSTEM</h3>
       <p>A content-based movie recommendation engine that uses cosine similarity to find films matching a user's
         preferred genres.</p>
       <table class="metrics-table">
@@ -1952,7 +2013,7 @@
     </div>
 
     <div class="project-detail reveal" id="proj-housing">
-      <h3>PROJECT 5: HOUSING PRICE PREDICTION & DATA CLEANING</h3>
+      <h3>PROJECT 6: HOUSING PRICE PREDICTION & DATA CLEANING</h3>
       <p>A linear regression model for housing price estimation combined with a production-grade Pandas data cleaning
         pipeline for real-world datasets.</p>
       <table class="metrics-table">
@@ -2167,8 +2228,8 @@
         '[OK] Neural network interfaces: ACTIVE',
         '[OK] ML pipeline status: READY',
         '[OK] Flask server: STANDBY',
-        '[OK] Skills database: LOADED (6 entries)',
-        '[OK] Projects repository: SYNCED (5 repos)',
+        '[OK] Skills database: LOADED (7 entries)',
+        '[OK] Projects repository: SYNCED (6 repos)',
         '[OK] Certificates vault: VERIFIED',
         '',
         '> Launching portfolio environment...',
