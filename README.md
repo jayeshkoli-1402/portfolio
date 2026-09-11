@@ -46,6 +46,6 @@ git push
 
 ## Live Demo
 
-- [Live site](https://jayeshkoli-1402.github.io/portfolio/)
+https://jayeshkoli-1402.github.io/portfolio/
 
 
